@@ -125,6 +125,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.collectionView.allowsSelection = YES;
+    self.collectionView.allowsMultipleSelection = YES;
     
     self.inputToolbar.delegate = self;
     self.inputToolbar.contentView.textView.placeHolder = NSLocalizedString(@"New Message", @"Placeholder text for the message input text view");
@@ -393,7 +395,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     BOOL isEvent = [collectionView.dataSource collectionView:collectionView shouldShowEventForItemAtIndexPath:indexPath];
     
     JSQMessagesCollectionViewCell *cell;
-    
+    cell.delegate = self;
     if (isEvent) {
         NSString *cellIdentifier = isOutgoingMessage ? self.outgoingEventCellIdentifier : self.incomingEventCellIdentifier;
         cell = (JSQMessagesEventCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -402,7 +404,6 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     else {
         NSString *cellIdentifier = isOutgoingMessage ? self.outgoingCellIdentifier : self.incomingCellIdentifier;
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.delegate = self;
     }
     
     
@@ -411,11 +412,27 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     NSParameterAssert(messageText != nil);
     
     if (isEvent) {
-        NSLog(@"%@",[collectionView.dataSource collectionView:collectionView titleForEventAtIndexPath:indexPath]);
-        cell.titleLabel.text = [collectionView.dataSource collectionView:collectionView titleForEventAtIndexPath:indexPath];
-        cell.timeLabel.text = [collectionView.dataSource collectionView:collectionView timeForEventAtIndexPath:indexPath];
-        cell.locationLabel.text = [collectionView.dataSource collectionView:collectionView locationForEventAtIndexPath:indexPath];
-        cell.textView.text = @"Lunch With Orange Tribes\n5 November 12.00-13.00\nFood Summit";
+        JSQMessagesEventCollectionViewCell *c = (JSQMessagesEventCollectionViewCell *)cell;
+        c.titleLabel.text = [collectionView.dataSource collectionView:collectionView titleForEventAtIndexPath:indexPath];
+        c.timeLabel.text = [collectionView.dataSource collectionView:collectionView timeForEventAtIndexPath:indexPath];
+        c.locationLabel.text = [collectionView.dataSource collectionView:collectionView locationForEventAtIndexPath:indexPath];
+        c.textView.text = @"Lunch With Orange Tribes\n5 November 12.00-13.00\nFood Summit";
+        c.coloredView.backgroundColor = [collectionView.dataSource collectionView:collectionView colorForEventAtIndexPath:indexPath];
+        
+        NSString *imageName = [collectionView.dataSource collectionView:collectionView iconForEventAtIndexPath:indexPath];
+        
+        c.eventIconWidthConstraint.constant = 20;
+        c.eventIconHeightConstraint.constant = 20;
+        
+        if ([imageName isEqualToString:@"icn_cal_declined"]) {
+            c.eventIconWidthConstraint.constant = 17;
+            c.eventIconHeightConstraint.constant = 17;
+        }
+        if ([imageName isEqualToString:@"icn_cal_accepted"]) {
+            c.eventIconHeightConstraint.constant = 14;
+            c.eventIconWidthConstraint.constant = 20;
+        }
+        c.eventIcon.image = [UIImage imageNamed:imageName];
     }
     else {
         cell.textView.text = messageText;
@@ -501,6 +518,10 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     return NO;
 }
 
+-(void)collectionView:(JSQMessagesCollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+
 #pragma mark - Collection view delegate flow layout
 
 - (CGSize)collectionView:(JSQMessagesCollectionView *)collectionView
@@ -537,7 +558,6 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView
  didTapAvatarImageView:(UIImageView *)avatarImageView
            atIndexPath:(NSIndexPath *)indexPath { }
-
 #pragma mark - Messages collection view cell delegate
 
 - (void)messagesCollectionViewCellDidTapAvatar:(JSQMessagesCollectionViewCell *)cell

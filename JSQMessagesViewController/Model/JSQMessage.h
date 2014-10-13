@@ -17,6 +17,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "JSQMessageData.h"
 
@@ -34,6 +35,14 @@
 @property (copy, nonatomic) NSString *eventTime;
 
 @property (copy, nonatomic) NSString *eventLocation;
+
+@property (copy, nonatomic) NSString *eventIdentifier;
+
+@property (assign, nonatomic) NSInteger eventStatus;
+
+@property (copy, nonatomic) UIColor *eventStatusColor;
+
+@property (copy, nonatomic) NSString *eventStatusImage;
 
 /**
  *  The body text of the message. This value must not be `nil`.

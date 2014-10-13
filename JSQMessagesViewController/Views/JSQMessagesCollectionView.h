@@ -56,6 +56,10 @@
 
 - (NSString *)collectionView:(JSQMessagesCollectionView *)collectionView locationForEventAtIndexPath:(NSIndexPath *)indexPath;
 
+- (UIColor *)collectionView:(JSQMessagesCollectionView *)collectionView colorForEventAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSString *)collectionView:(JSQMessagesCollectionView *)collectionView iconForEventAtIndexPath:(NSIndexPath *)indexPath;
+
 
 /*
  * Normal JSQ methods

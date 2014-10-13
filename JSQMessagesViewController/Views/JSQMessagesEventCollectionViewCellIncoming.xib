@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -34,20 +34,68 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btS-p8-B7Z">
-                        <rect key="frame" x="41" y="40" width="239" height="94"/>
+                        <rect key="frame" x="41" y="40" width="269" height="94"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYU-B8-cUW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYU-B8-cUW">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skA-Ik-jR0">
+                                <rect key="frame" x="219" y="0.0" width="50" height="92"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_cal.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-O5-PjX">
+                                        <rect key="frame" x="13" y="33" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="ZYQ-eS-CKs"/>
+                                            <constraint firstAttribute="width" constant="25" id="qXc-bv-mdT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.36470588240000001" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="JuB-bW-Xdc"/>
+                                    <constraint firstAttribute="centerX" secondItem="Oau-O5-PjX" secondAttribute="centerX" id="hXM-ep-WWg"/>
+                                    <constraint firstAttribute="centerY" secondItem="Oau-O5-PjX" secondAttribute="centerY" id="xC7-zP-6XN"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch With Orange Tribes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcQ-Y0-4TK">
+                                <rect key="frame" x="8" y="8" width="203" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 November 12.00 - 13.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-EN-eD6">
+                                <rect key="frame" x="8" y="31" width="203" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Summit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-p6-Pew">
+                                <rect key="frame" x="8" y="53" width="203" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KYU-B8-cUW" secondAttribute="trailing" id="4qS-03-PFO"/>
+                            <constraint firstAttribute="trailing" secondItem="KYU-B8-cUW" secondAttribute="trailing" constant="50" id="4qS-03-PFO"/>
+                            <constraint firstItem="u4K-p6-Pew" firstAttribute="leading" secondItem="D7m-EN-eD6" secondAttribute="leading" id="4xf-7F-P8y"/>
+                            <constraint firstAttribute="trailing" secondItem="skA-Ik-jR0" secondAttribute="trailing" id="9yo-cS-0CS"/>
                             <constraint firstAttribute="bottom" secondItem="KYU-B8-cUW" secondAttribute="bottom" id="B2v-Gq-Y1L"/>
-                            <constraint firstItem="KYU-B8-cUW" firstAttribute="leading" secondItem="btS-p8-B7Z" secondAttribute="leading" constant="6" id="Tg9-9l-vr8"/>
+                            <constraint firstItem="YcQ-Y0-4TK" firstAttribute="top" secondItem="btS-p8-B7Z" secondAttribute="top" constant="8" id="L3J-AK-FOj"/>
+                            <constraint firstItem="YcQ-Y0-4TK" firstAttribute="leading" secondItem="D7m-EN-eD6" secondAttribute="leading" id="OVt-t8-vQt"/>
+                            <constraint firstItem="D7m-EN-eD6" firstAttribute="top" secondItem="YcQ-Y0-4TK" secondAttribute="bottom" constant="3" id="QaD-f0-56g"/>
+                            <constraint firstItem="YcQ-Y0-4TK" firstAttribute="leading" secondItem="btS-p8-B7Z" secondAttribute="leading" constant="8" id="RXl-HX-Y1y"/>
+                            <constraint firstItem="KYU-B8-cUW" firstAttribute="leading" secondItem="btS-p8-B7Z" secondAttribute="leading" id="Tg9-9l-vr8"/>
+                            <constraint firstItem="skA-Ik-jR0" firstAttribute="top" secondItem="btS-p8-B7Z" secondAttribute="top" id="WqH-le-e00"/>
+                            <constraint firstAttribute="trailing" secondItem="YcQ-Y0-4TK" secondAttribute="trailing" constant="58" id="ZP2-LJ-f8u"/>
                             <constraint firstItem="KYU-B8-cUW" firstAttribute="top" secondItem="btS-p8-B7Z" secondAttribute="top" id="aEL-yH-N1p"/>
+                            <constraint firstItem="YcQ-Y0-4TK" firstAttribute="trailing" secondItem="D7m-EN-eD6" secondAttribute="trailing" id="cFD-oa-QpH"/>
+                            <constraint firstItem="u4K-p6-Pew" firstAttribute="trailing" secondItem="D7m-EN-eD6" secondAttribute="trailing" id="lfL-lI-bmo"/>
+                            <constraint firstItem="u4K-p6-Pew" firstAttribute="top" secondItem="D7m-EN-eD6" secondAttribute="bottom" constant="1.5" id="r8A-Ij-baV"/>
+                            <constraint firstAttribute="bottom" secondItem="skA-Ik-jR0" secondAttribute="bottom" constant="2" id="zKe-gA-POJ"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-09-wR4">
@@ -87,7 +135,7 @@
                 <constraint firstItem="btS-p8-B7Z" firstAttribute="leading" secondItem="Da1-09-wR4" secondAttribute="trailing" constant="7" id="j0I-pm-eex"/>
                 <constraint firstItem="btS-p8-B7Z" firstAttribute="top" secondItem="Ufa-bF-l1Y" secondAttribute="bottom" id="jAu-Dn-7rN"/>
                 <constraint firstItem="Da1-09-wR4" firstAttribute="leading" secondItem="4lh-CK-yVn" secondAttribute="leading" id="jiu-B4-TSD"/>
-                <constraint firstAttribute="trailing" secondItem="btS-p8-B7Z" secondAttribute="trailing" constant="40" id="k2n-jk-kOg"/>
+                <constraint firstAttribute="trailing" secondItem="btS-p8-B7Z" secondAttribute="trailing" constant="10" id="k2n-jk-kOg"/>
                 <constraint firstAttribute="bottom" secondItem="UPz-5x-c1T" secondAttribute="bottom" id="nsK-Gh-M3Z"/>
                 <constraint firstItem="UPz-5x-c1T" firstAttribute="top" secondItem="btS-p8-B7Z" secondAttribute="bottom" id="s8G-Je-7GA"/>
             </constraints>
@@ -100,6 +148,11 @@
                 <outlet property="cellBottomLabelHeightConstraint" destination="xPR-Ph-Ze9" id="nvV-Tk-AIs"/>
                 <outlet property="cellTopLabel" destination="afj-rd-iNv" id="bTd-4q-U7e"/>
                 <outlet property="cellTopLabelHeightConstraint" destination="fKS-MR-YPI" id="YWd-Rd-qSL"/>
+                <outlet property="coloredView" destination="skA-Ik-jR0" id="vdl-uF-tpg"/>
+                <outlet property="eventIcon" destination="Oau-O5-PjX" id="TA6-sB-GSX"/>
+                <outlet property="eventIconHeightConstraint" destination="ZYQ-eS-CKs" id="uqv-pI-AZw"/>
+                <outlet property="eventIconWidthConstraint" destination="qXc-bv-mdT" id="cgH-KB-lfm"/>
+                <outlet property="locationLabel" destination="u4K-p6-Pew" id="boK-fM-PsX"/>
                 <outlet property="messageBubbleContainerView" destination="btS-p8-B7Z" id="2sk-5p-NEd"/>
                 <outlet property="messageBubbleLeftRightMarginConstraint" destination="k2n-jk-kOg" id="DoB-EE-Ka1"/>
                 <outlet property="messageBubbleTopLabel" destination="Ufa-bF-l1Y" id="VtH-te-blR"/>
@@ -109,9 +162,14 @@
                 <outlet property="textViewBottomVerticalSpaceConstraint" destination="B2v-Gq-Y1L" id="oKV-Ti-Oci"/>
                 <outlet property="textViewMarginHorizontalSpaceConstraint" destination="4qS-03-PFO" id="1Qe-Ee-fUO"/>
                 <outlet property="textViewTopVerticalSpaceConstraint" destination="aEL-yH-N1p" id="WPl-0b-tf1"/>
+                <outlet property="timeLabel" destination="D7m-EN-eD6" id="ZeN-TA-cAB"/>
+                <outlet property="titleLabel" destination="YcQ-Y0-4TK" id="Pqm-rF-He7"/>
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icn_cal.png" width="20" height="19"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

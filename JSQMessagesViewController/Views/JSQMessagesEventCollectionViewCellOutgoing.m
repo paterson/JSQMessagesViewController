@@ -20,7 +20,6 @@
     return NSStringFromClass([JSQMessagesEventCollectionViewCellOutgoing class]);
 }
 
-// todo implement in incoming..
 - (void)setTextViewFrameInsets:(UIEdgeInsets)textViewFrameInsets
 {
     if (UIEdgeInsetsEqualToEdgeInsets(textViewFrameInsets, self.textViewFrameInsets)) {
@@ -32,9 +31,6 @@
     [self jsq_updateConstraint:self.textViewAvatarHorizontalSpaceConstraint withConstant:textViewFrameInsets.right];
     [self jsq_updateConstraint:self.textViewMarginHorizontalSpaceConstraint withConstant:textViewFrameInsets.left + 45];
 }
-
-
-// todo implement in incoming
 
 - (void)setCornersOnColoredView {
     
@@ -48,16 +44,6 @@
     maskLayer.path = maskPath.CGPath;
     self.coloredView.layer.mask = maskLayer;
     
-    
-//    self.coloredView.layer.cornerRadius = 4.0;
-//    // hide top right and bottom right corners (helps performance this way)
-//    CGRect frame = self.coloredView.frame;
-//    frame.origin.x = frame.size.width - 4;
-//    frame.size.width = 4;
-//    frame.size.height = self.contentView.frame.size.height - 2; // for pointy thing at bottom left of bubble.
-//    UIView *spacer = [[UIView alloc] initWithFrame:frame];
-//    [spacer setBackgroundColor:[UIColor whiteColor]];
-//    [self.coloredView addSubview:spacer];
 }
 
 /*

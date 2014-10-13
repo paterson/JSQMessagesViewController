@@ -13,10 +13,21 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.textView.textColor = [UIColor blackColor];
+    self.textView.textColor = [UIColor whiteColor];
+    self.textView.userInteractionEnabled = false;
+    self.textView.alpha = 0.0;
+    //self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self setCornersOnColoredView];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped)];
+    [self.messageBubbleContainerView addGestureRecognizer:tapRecognizer];
+    
+}
+
+- (void)viewWasTapped {
+    NSDictionary* userInfo = @{@"cell": self};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"JSQMessagesCollectionViewCellWasTapped" object:self userInfo:userInfo];
 }
 
 - (UIEdgeInsets)textViewFrameInsets

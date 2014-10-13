@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -36,7 +36,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zh-vR-QJW">
                         <rect key="frame" x="10" y="40" width="269" height="94"/>
                         <subviews>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZw-3b-ND0">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZw-3b-ND0">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -151,6 +151,9 @@
                 <outlet property="cellTopLabel" destination="jxM-YD-sVG" id="acH-pr-spx"/>
                 <outlet property="cellTopLabelHeightConstraint" destination="9oK-E7-iXA" id="MZM-kV-2dI"/>
                 <outlet property="coloredView" destination="Q0b-Cm-m0S" id="uBt-UX-qYW"/>
+                <outlet property="eventIcon" destination="Hji-QX-z2f" id="o3f-tW-iex"/>
+                <outlet property="eventIconHeightConstraint" destination="bfb-9t-WtR" id="m2D-xM-IDq"/>
+                <outlet property="eventIconWidthConstraint" destination="GYT-1r-fL1" id="SC6-qB-a9V"/>
                 <outlet property="locationLabel" destination="Rl9-fx-Phb" id="xEl-Sr-lDb"/>
                 <outlet property="messageBubbleContainerView" destination="2zh-vR-QJW" id="pu0-GU-eZl"/>
                 <outlet property="messageBubbleLeftRightMarginConstraint" destination="tya-FG-SP6" id="3oJ-6X-GCK"/>
@@ -160,6 +163,7 @@
                 <outlet property="timeLabel" destination="911-0Z-enf" id="jV6-Ma-frw"/>
                 <outlet property="titleLabel" destination="8gI-zc-bYa" id="v30-2e-GRH"/>
             </connections>
+            <point key="canvasLocation" x="196" y="203"/>
         </collectionViewCell>
     </objects>
     <resources>

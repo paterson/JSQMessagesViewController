@@ -69,6 +69,11 @@
     [self registerNib:[JSQMessagesLoadEarlierHeaderView nib]
           forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
           withReuseIdentifier:[JSQMessagesLoadEarlierHeaderView headerReuseIdentifier]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(cellWasTapped:)
+                                                 name:@"JSQMessagesCollectionViewCellWasTapped"
+                                               object:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
@@ -84,6 +89,12 @@
 {
     [super awakeFromNib];
     [self jsq_configureCollectionView];
+}
+
+- (void)cellWasTapped:(NSNotification *) notification {
+    NSDictionary* userInfo = notification.userInfo;
+    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)userInfo[@"cell"];
+    [self.delegate collectionView:self didSelectItemAtIndexPath:[self indexPathForCell:cell]];
 }
 
 #pragma mark - Typing indicator
@@ -123,6 +134,10 @@
     if ([self.delegate respondsToSelector:@selector(collectionView:header:didTapLoadEarlierMessagesButton:)]) {
         [self.delegate collectionView:self header:headerView didTapLoadEarlierMessagesButton:sender];
     }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
